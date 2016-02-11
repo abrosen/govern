@@ -23,3 +23,5 @@ Byzantine security
 
 Authoritative revocation of keys
 Fork management
+
+Check signature and resign
