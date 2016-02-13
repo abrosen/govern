@@ -12,10 +12,55 @@
 	\maketitle
 	
 	
-	\cite{nomic}
-	\cite{camilleri2010playing}
+	Developers and researchers typically use one of two models when building a distributed system.
+	The first is a completely centralized model, where one server or person is in control.
+	The other alternative is a completely decentralized model, where no single entity has control, except for perhaps the protocol itself.
 	
-	foo \cite{tezos}
+	In practice, this is not the only models that exist in the wild.  
+	
+	
+	How can we create a system that balances multiple powerful entities against each other.
+	
+	
+	
+	Nomic is a game created by Peter Suber in 1982 \cite{nomic}.
+	The initial rules of the game define a goal (gaining points) and describe how Nomic works.
+	Each ``move'' in the game is a proposition to add, remove, or amend the rules of the game (unless of course, the rules have defined new actions that players can take for their turns).
+	Any modification to the rules is then voted upon by the players and goes into effect (again, unless the rules have moved the system away from a democracy).
+	The player then collects points.
+	
+	Previous work has been done on using Nomic as the system for blockchain based systems for Bitcoin or other cryptocurrencies \cite{tezos} using a constructed language.
+	We want to show how Nomic can be used as the basis for building a wide variety self-governing distributed systems, from blockchains, to administrating servers, to solving very interesting problems in managing DNS and security, such as key revocation.
+	
+	Because Nomic is a system for laying down rules, defining who can do what and who has power, we can use it to simulate just about any governmental form of management. 
+	Some examples:
+	\begin{itemize}
+		\item An autocracy, a system where power and authority is vested in a single entity. 
+		\item An aristocracy, where only chosen members of the system get to vote, or even have a voice.
+		\item A plutocracy, where a large sum of currency is needed to participate. In other words, he who has the gold makes the rules.
+		\item A representative democracy, where users in the system collectively appoint individuals to act as their proxy or proxies.
+		\item A pure democracy, where each users can or must vote on each issue.
+	\end{itemize}
+	
+	There are many variations that can be taken from history.  
+	For example, a representative democracy might elect to temporarily appoint a dictator with a wide range of powers, but limited in certain capacities, much like the Roman dictator and general Lucius Quinctius Cincinnatus.
+	
+	
+	\section{Creating Your Own Nomic Based System}
+	
+	
+	Nomic's initial rules are extremely simple, but allow us to create an incredibly complex systems.
+	Likewise, we will present a abstract way to build a Nomic based system.
+	
+	The first thing is to determine your initial ruleset.
+	We suggest everyone 
+	
+	
+	
+	
+	
+	foo \cite{camilleri2010playing}
+	 \cite{tezos}
 	\bibliography{refs}
 	\bibliographystyle{IEEEtran}
 \end{document}
