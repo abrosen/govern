@@ -38,13 +38,14 @@
 	\begin{itemize}
 		\item An autocracy, a system where power and authority is vested in a single entity. 
 		\item An aristocracy, where only chosen members of the system get to vote, or even have a voice.
-		\item A plutocracy, where a large sum of currency is needed to participate. In other words, he who has the gold makes the rules.
+		\item A plutocracy, where a large sum of currency is needed to either participate or take an action. In other words, he who has the gold makes the rules.
 		\item A representative democracy, where users in the system collectively appoint individuals to act as their proxy or proxies.
 		\item A pure democracy, where each users can or must vote on each issue.
 	\end{itemize}
 	
 	There are many variations that can be taken from history.  
 	For example, a representative democracy might elect to temporarily appoint a dictator with a wide range of powers, but limited in certain capacities, much like the Roman dictator and general Lucius Quinctius Cincinnatus.
+	There are number of methods that would be impractical  in a non-computing  environment, but can be managed here, such as choosing a new dictator every 5 minutes.
 	
 	
 	\section{Creating Your Own Nomic Based System}
@@ -57,29 +58,43 @@
 	\begin{itemize}
 		\item The \textit{state} of system.  This is the current rules as well as any information needed about participants.
 		\item The \textit{Validator}  is  a function which takes in the proposed new block and  returns true or false, depending on whether on not it meets the criteria accepted and executed.
-		\item The \textit{Executor} is a function which makes the proposed changes to the the rules and the state of the system.  It also performs any action that needs to be taken indepent of the success or failure of a rule change or some other action.
+		\item The \textit{Executor} is a function which makes the proposed changes to the the rules and the state of the system.  It also performs any action that needs to be taken independent of the success or failure of a rule change or some other action.
 		\item A networking component to communicate with the other members of the system.
 	\end{itemize}
 	
 	The first thing is to determine your initial ruleset.
 	We recommend that the initial ruleset be built from the ground up using a pure democracy, much like the base rules in Nomic.
 	This allows the specific rules for this particular system to be built from the ground up.
+	The specific starting rules depend on each use case.
+	
+	
+	\section{Building a Decentralized Identity Management System}
+	
+	Begin by creating a system of basic rules for management.
+	 
 	
 	
 	
 	\section{Building a Blockchain}
 	
-	\section{Building a New DNS Service}
+%	\section{Building a New DNS Service}
 	
-	One great advantage over this system is there is modifiable record of whose keys are valid.
+%	One great advantage over this system is there is modifiable record of whose keys are valid.
 	
-	Should a root server become compromised or start issuing invalid keys, the other servers can act and revoke the signer's key, rendering their signed records invalid.
-	
-	\section{Auditable And Highly controlled system}
+%	Should a root server become compromised or start issuing invalid keys, the other servers can act and revoke the signer's key, rendering their signed records invalid.
 	
 	
+%	In this scenario, we have two sets of identities stored by Governomic: the DNS records themselves, and those who manage the DNS records.
+%	Each root DNS server can autonomously add any DNS record and sign it by with their key.
+	
+%	What makes the system different from regular DNS is the ability to autorize new 
+	
+	\section{Auditable And Highly Controlled System}
 	
 	
+	
+	
+	\section{Addressing Security Concerns}
 	foo \cite{camilleri2010playing}
 	 \cite{tezos}
 	\bibliography{refs}
