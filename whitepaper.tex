@@ -30,9 +30,10 @@
 	The player then collects points.
 	
 	Previous work has been done on using Nomic as the system for blockchain based systems for Bitcoin or other cryptocurrencies \cite{tezos} using a constructed language.
-	We want to show how Nomic can be used as the basis for building a wide variety self-governing distributed systems, from blockchains, to administrating servers, to solving very interesting problems in managing DNS and security, such as key revocation.
+	We want to show how Nomic can be used as the basis for building a wide variety self-governing distributed systems from blockchains, to administrating servers, to solving very interesting problems in managing DNS and security, such as key revocation.
+	Governomic also does not assume the need for a constructed language.
 	
-	Because Nomic is a system for laying down rules, defining who can do what and who has power, we can use it to simulate just about any governmental form of management. 
+	Because Nomic is a system for laying down rules, defining who can do what and who has power, we can use it to simulate just about any form of governmental system implemented by humans. 
 	Some examples:
 	\begin{itemize}
 		\item An autocracy, a system where power and authority is vested in a single entity. 
@@ -52,9 +53,29 @@
 	Nomic's initial rules are extremely simple, but allow us to create an incredibly complex systems.
 	Likewise, we will present a abstract way to build a Nomic based system.
 	
-	The first thing is to determine your initial ruleset.
-	We suggest everyone 
+	Implementing a Nomic system can be thought of building 4 different components.
+	\begin{itemize}
+		\item The \textit{state} of system.  This is the current rules as well as any information needed about participants.
+		\item The \textit{Validator}  is  a function which takes in the proposed new block and  returns true or false, depending on whether on not it meets the criteria accepted and executed.
+		\item The \textit{Executor} is a function which makes the proposed changes to the the rules and the state of the system.  It also performs any action that needs to be taken indepent of the success or failure of a rule change or some other action.
+		\item A networking component to communicate with the other members of the system.
+	\end{itemize}
 	
+	The first thing is to determine your initial ruleset.
+	We recommend that the initial ruleset be built from the ground up using a pure democracy, much like the base rules in Nomic.
+	This allows the specific rules for this particular system to be built from the ground up.
+	
+	
+	
+	\section{Building a Blockchain}
+	
+	\section{Building a New DNS Service}
+	
+	One great advantage over this system is there is modifiable record of whose keys are valid.
+	
+	Should a root server become compromised or start issuing invalid keys, the other servers can act and revoke the signer's key, rendering their signed records invalid.
+	
+	\section{Auditable And Highly controlled system}
 	
 	
 	
