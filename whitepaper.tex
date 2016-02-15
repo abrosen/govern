@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
+\usepackage{hyperref}
 \author{Andrew Rosen, Brendan Benshoof, Anu G. Bourgeois, Robert W. Harrison}
 \date{}
 \title{How to Build Distributed Governed Systems}
@@ -18,11 +19,11 @@
 	
 	In practice, this is not the only models that exist in the wild.  
 	
-	
-	How can we create a system that balances multiple powerful entities against each other.
-	
+	How can we create a system that balances multiple powerful entities against each other?
 	
 	
+
+
 	Nomic is a game created by Peter Suber in 1982 \cite{nomic}.
 	The initial rules of the game define a goal (gaining points) and describe how Nomic works.
 	Each ``move'' in the game is a proposition to add, remove, or amend the rules of the game (unless of course, the rules have defined new actions that players can take for their turns).
@@ -33,6 +34,8 @@
 	We want to show how Nomic can be used as the basis for building a wide variety self-governing distributed systems from blockchains, to administrating servers, to solving very interesting problems in managing DNS and security, such as key revocation.
 	Governomic also does not assume the need for a constructed language.
 	
+	
+	\subsection{Types of Governments}
 	Because Nomic is a system for laying down rules, defining who can do what and who has power, we can use it to simulate just about any form of governmental system implemented by humans. 
 	Some examples:
 	\begin{itemize}
@@ -48,6 +51,21 @@
 	There are number of methods that would be impractical  in a non-computing  environment, but can be managed here, such as choosing a new dictator every 5 minutes.
 	
 	
+	\subsection{This Sounds Like How a Blockchain works, so why not that?}
+	
+		
+	
+	Blockchains have proven to be an interesting solution and been implemented with success in the now famous Bitcoin protocol.
+	However, the proof-of-work is not optimal for many uses cases, due to the amount of energy it uses and the ever increasing hardware race involved in ``mining'' blocks (Figure \ref{fig:speed-lin}).
+	
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{figs/speed-lin}
+		\caption{The computational power of the computers participating in the Bitcoin network, since march of last year, measured in \textbf{trillions} of SHA-256 operations per second \cite{hashing}.  Notice the curve is exponential.   Now glumly consider how much good that would do if it was applied to cancer research.}
+		\label{fig:speed-lin}
+	\end{figure}
+	
 	\section{Creating Your Own Nomic Based System}
 	
 	
@@ -59,7 +77,7 @@
 		\item The \textit{state} of system.  This is the current rules as well as any information needed about participants.
 		\item The \textit{Validator}  is  a function which takes in the proposed new block and  returns true or false, depending on whether on not it meets the criteria accepted and executed.
 		\item The \textit{Executor} is a function which makes the proposed changes to the the rules and the state of the system.  It also performs any action that needs to be taken independent of the success or failure of a rule change or some other action.
-		\item A networking component to communicate with the other members of the system.
+		\item A networking component to communicate with the other members of the system.  We assume updates to the state and proposals are done via pulls.
 	\end{itemize}
 	
 	The first thing is to determine your initial ruleset.
@@ -71,7 +89,12 @@
 	\section{Building a Decentralized Identity Management System}
 	
 	Begin by creating a system of basic rules for management.
-	 
+	We start by defining which people have power to add new individuals to the system, the \textit{managers}.
+	We also need to manage the identities of those who will be managed by the system, which will stored in some data structure denoted as \textit{IDs}.
+	
+	
+	Managers contains the initial list and keys of
+	IDs, which might names tied to public keys or some unique hash, will also be associated with the manager that added them into the system.
 	
 	
 	
@@ -95,6 +118,10 @@
 	
 	
 	\section{Addressing Security Concerns}
+	The largest problem for security in the system is the ``forking'' problems.
+	Suppose you are some new user or you are managing a server that experienced some technical difficulties and lost part of the current chain.
+	You pull from your neighbors and discover you
+	
 	foo \cite{camilleri2010playing}
 	 \cite{tezos}
 	\bibliography{refs}
