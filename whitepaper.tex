@@ -53,16 +53,46 @@
 	
 	\subsection{This Sounds Like How a Blockchain works, so why not that?}
 	
-		
+%	The concept of a Blockchain comes from Bitcoin.
+%	Bitcoin's blockchain is essentially a shared ledger.  
+%	The blockchain (Figure \ref{fig:blockchain}) acts as a record of all Bitcoin transactions. 
+%	Each transaction refers to a previous transaction, which indicates the funds belong to who the transactions says they do. 
+%	Validation of the record is accomplished by traversing the tree of transactions and marking the referenced transactions as used. 
+
+	Bitcoin's blockchain is essentially a shared ledger.  The blockchain (Figure \ref{fig:blockchain}) is a record of every single transaction made using the Bitcoin. Each transaction refers to  a previous transaction, indicating the funds handled by the new transaction are in fact owned by the user initiating the transaction. The record is validated by traversing the tree of transactions and marking the referenced transactions as used. A valid blockchain has all non-leaf node transactions marked as used only once.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.75\linewidth]{figs/blockchain}
+		\caption{A section of the blockchain as defined by Bitcoin \cite{bitcoin}.}
+		\label{fig:blockchain}
+	\end{figure}
+	
+	
+	
+	Transactions are grouped together and verified in a \emph{block}, which are linked together in a chain.  
+	Each block in the chain is a series of transactions published during the time it takes to generate that block. 
+	The process of authenticating these transactions and generating a new block is called mining.  
+	Mining a block is analogous to the concept of gold mining, as the incentive for successfully mining a block is a large sum of new bitcoins.  
+	
 	
 	Blockchains have proven to be an interesting solution and been implemented with success in the now famous Bitcoin protocol.
 	However, the proof-of-work is not optimal for many uses cases, due to the amount of energy it uses and the ever increasing hardware race involved in ``mining'' blocks (Figure \ref{fig:speed-lin}).
 	
 	
+	
+	This increase in computational power is due to the way proof-of-work is done in Bitcoin.  
+	In order to mine a new block and create new bitcoins, a user must generate a hash using the hash of the previous block, new transactions, and a nonce.  
+	The more hashes are performed over the entire system,  the quicker the Bitcoin network will mine blocks. 
+	Likewise, the more hashes an individual can perform, the better their chances of claiming the block and creating new Bitcoins (a block is worth roughly \$10,000 USD at the time of writing, so there is considerable financial incentive to mine as quickly as possible). 
+	However, the system adjusts the difficulty of generating a new hash every 2016 blocks, so that there will be on average 10 minutes between blocks.
+	Thus, to keep up a profit, a miner needs more powerful hardware, which creates an arms race among the miners (of course, the true winners here are the hardware manufacturers.  If you ever find yourself with a supply of money during a gold rush, sell shovels.)
+	
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{figs/speed-lin}
-		\caption{The computational power of the computers participating in the Bitcoin network, since march of last year, measured in \textbf{trillions} of SHA-256 operations per second \cite{hashing}.  Notice the curve is exponential.   Now glumly consider how much good that would do if it was applied to cancer research.}
+		\caption{The computational power of the computers participating in the Bitcoin network, since march of last year, measured in \textbf{trillions} of SHA-256 operations per second \cite{hashing}.  Notice the curve is exponential.   Now glumly consider how much good that would do if it was applied to cancer research.
+		   }
 		\label{fig:speed-lin}
 	\end{figure}
 	
@@ -93,7 +123,9 @@
 	We also need to manage the identities of those who will be managed by the system, which will stored in some data structure denoted as \textit{IDs}.
 	
 	
-	Managers contains the initial list and keys of
+	Managers contains the initial list and keys of the entities that have the authority to add new users to the system.
+	Managers can add additional managers by voting to add new managers to the system.
+	
 	IDs, which might names tied to public keys or some unique hash, will also be associated with the manager that added them into the system.
 	
 	
